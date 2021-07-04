@@ -18,6 +18,21 @@ Features include:
 gh repo create my-api -p kurierjs/kurier-starter-pack-javascript
 ```
 
+## Usage
+
+1. Run `npm install` or `yarn` to install all dependencies.
+2. Run `docker-compose up -d` to start a daemonized Docker container with a Postgres database.
+3. Run `yarn start:dev` and execute a request towards `http://localhost:3000`.
+
+## Available commands
+
+- `start:dev` runs the API in a local environment using `nodemon`.
+- `migrate:make <name>` creates a Knex migration file in `data/migrations/<timestamp>_<name>.js`.
+- `migrate:latest` runs all pending migrations.
+- `migrate:rollback` reverts the last set of migrations.
+- `seed:make <name>` creates a Knex seed file in `data/seeds/<name>.js`.
+- `seed:run` executes all seed files.
+
 ## License
 
 MIT
