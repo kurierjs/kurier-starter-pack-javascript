@@ -1,6 +1,8 @@
 import { resolve } from 'path';
 
-module.exports = {
+const __dirname = resolve();
+
+const config = {
   development: {
     client: 'pg',
     connection: 'postgresql://postgres:postgres@localhost:5432/postgres',
@@ -8,11 +10,17 @@ module.exports = {
     debug: true,
     seeds: {
       directory: resolve(__dirname, 'data', 'seeds'),
-      loadExtensions: ['*.ts'],
+      loadExtensions: ['*.js'],
     },
     migrations: {
       directory: resolve(__dirname, 'data', 'migrations'),
-      loadExtensions: ['*.ts'],
+      loadExtensions: ['*.js'],
     },
   },
 };
+
+if ('module' in global) {
+  module.exports = config;
+}
+
+export default config;

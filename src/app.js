@@ -1,12 +1,14 @@
-import { Application, jsonApiKoa, UserManagementAddon, UserManagementAddonOptions, UserProcessor } from 'kurier';
-import * as Koa from 'koa';
-import { knex } from 'knex';
+import { Application, jsonApiKoa, UserManagementAddon, UserProcessor } from 'kurier';
+import Koa from 'koa';
+import knex from 'knex';
 import { KoaLoggingMiddleware as logs, Log } from 'logepi';
 
-import knexConfig = require('../knexfile');
-import { permissionProvider, roleProvider } from './providers';
-import { User } from './resources';
-import { login } from './services/user-management';
+import knexConfig from '../knexfile.js';
+
+import { login } from './services/user-management.js';
+import { permissionProvider } from './providers/permission.js';
+import { roleProvider } from './providers/role.js';
+import { User } from './resources/user.js';
 
 const app = new Application({
   /* Configure your app here */
@@ -23,7 +25,7 @@ app.use(UserManagementAddon, {
   userLoginCallback: login,
   userRolesProvider: roleProvider,
   userPermissionsProvider: permissionProvider,
-} as UserManagementAddonOptions);
+});
 
 const api = new Koa();
 const port = process.env.PORT || 3000;
