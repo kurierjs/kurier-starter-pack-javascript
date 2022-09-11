@@ -1,38 +1,38 @@
 {
-  "name": "@kurier/starter-kit-typescript",
-  "version": "0.0.2",
+  "name": "@kurier/starter-kit-javascript",
+  "version": "1.0.0",
   "main": "src/app.js",
   "type": "module",
   "license": "MIT",
   "author": {
     "name": "Joel A. Villarreal Bertoldi",
-    "url": "https://github.com/kurierjs/kurier-starter-kit-typescript"
+    "url": "https://github.com/kurierjs/kurier-starter-kit-javascript"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kurierjs/kurier-starter-kit-typescript"
+    "url": "git+https://github.com/kurierjs/kurier-starter-kit-javascript"
   },
   "scripts": {
     "start:dev": "nodemon src/app",
-    "migrate:make": "knex migrate:make --migrations-directory ./data/migrations -x ts",
-    "migrate:latest": "knex migrate:latest --migrations-directory ./data/migrations --knexfile ./knexfile.ts",
-    "migrate:rollback": "knex migrate:rollback --migrations-directory ./data/migrations --knexfile ./knexfile.ts",
-    "seed:make": "knex seed:make --knexfile ./knexfile.ts -x ts",
-    "seed:run": "knex seed:run --knexfile ./knexfile.ts"
+    "migrate:make": "knex migrate:make --migrations-directory ./data/migrations -x js",
+    "migrate:latest": "knex migrate:latest --migrations-directory ./data/migrations --knexfile ./knexfile.js",
+    "migrate:rollback": "knex migrate:rollback --migrations-directory ./data/migrations --knexfile ./knexfile.js",
+    "seed:make": "knex seed:make --knexfile ./knexfile.js -x js",
+    "seed:run": "knex seed:run --knexfile ./knexfile.js"
   },
   "devDependencies": {
-    "eslint": "^7.30.0",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-import": "^2.22.0",
-    "eslint-plugin-prettier": "^3.4.0",
-    "nodemon": "^2.0.9",
-    "prettier": "^2.3.2"
+    "eslint": "^8.23.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "nodemon": "^2.0.19",
+    "prettier": "^2.7.1"
   },
   "dependencies": {
-    "knex": "^0.95.6",
-    "kurier": "^1.2.0-alpha3",
+    "knex": "^2.3.0",
+    "kurier": "^1.2.0",
     "logepi": "^1.0.8",
-    "pg": "^8.6.0",
-    "uuid": "^3.3.2"
+    "pg": "^8.8.0",
+    "uuid": "^9.0.0"
   }
 }
